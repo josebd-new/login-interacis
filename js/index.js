@@ -1,6 +1,6 @@
 
 import { loginAlumno } from './peticiones-http.js';
-
+import { errorApiAlumno, capturarAliasCode } from './funciones.js';
 
 const enviarAliasCode = document.querySelector('#boton');
 enviarAliasCode.addEventListener('click', () => {
@@ -13,20 +13,12 @@ enviarAliasCode.addEventListener('click', () => {
         code: code
     }).then(alumno => {
 
-        console.log(alumno.alias);
-        console.log(alumno.expediente);
-        console.log(alumno.id_objetivo);
+        window.location.href = 'pagina-alumno.html';
+
+        capturarAliasCode(alumno);
 
     }).catch(err => {
 
-        (err === 401) ? console.log('Usuario incorrecto') : console.log('no es');
-
-        const span = document.createElement('span');
-        document.querySelector('#info').appendChild(span);
-        span.innerHTML = `El usuario es incorrecto`;
-
-
-
+        errorApiAlumno(err);
     });
-
 });
