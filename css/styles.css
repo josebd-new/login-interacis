@@ -1,0 +1,14 @@
+html,
+body {
+  background-color: #444444;
+}
+#contenedor {
+  background-color: #1f707a;
+  
+  height: 25%;
+  padding: 25px;
+  margin-top: 10%;
+}
+h3 {
+  color: white;
+}
