@@ -9,23 +9,8 @@ const errorApiAlumno = (err) => {
         span.innerHTML = '<h4>El usuario es incorrecto</h4>';
     }
 }
-// pruebas
-const capturarAliasCode = ({ nombre }) => {
-
-    enviarPaginaAlumno(nombre);
-    return console.log(nombre);
-
-}
-
-const enviarPaginaAlumno = (nombre) => {
-
-    return console.log(nombre);
-
-
-}
-
 export {
-    errorApiAlumno,
-    capturarAliasCode,
-    enviarPaginaAlumno
+
+    errorApiAlumno
+
 }

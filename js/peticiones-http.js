@@ -1,13 +1,14 @@
 
 
-const urlApi = 'http://interacis.com:3333/login';
-
+const urlApiLogin = 'http://interacis.com:3333/login',
+    urljson = 'message-err.json',
+    urlApiToken = 'http://interacis.com:3333/api/v1/profile';
 
 const loginAlumno = async (alias, code) => {
 
     try {
 
-        const respuesta = await fetch(urlApi, {
+        const respuesta = await fetch(urlApiLogin, {
 
             method: 'POST',
             body: JSON.stringify(alias, code),
@@ -16,7 +17,7 @@ const loginAlumno = async (alias, code) => {
             }
         });
 
-        if (!respuesta.ok) throw respuesta.status;
+        if (!respuesta.ok) throw await respuesta.json();
 
         return await respuesta.json();
 
@@ -26,10 +27,43 @@ const loginAlumno = async (alias, code) => {
     }
 }
 
+const errorMessage = (message) => {
 
+    fetch(urljson)
+        .then(erro => erro.json())
+        .then(error => {
 
+            return console.log(error.respuesta);
 
+        })
+
+}
+const tokenAlumno = async (token) => {
+
+    try {
+
+        const respuesta = await fetch(urlApiToken, {
+
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-access-token': `${token}`
+            }
+        });
+
+        if (!respuesta.ok) throw await respuesta.json();
+
+        return await respuesta.json();
+
+    } catch (err) {
+
+        throw err;
+    }
+}
 
 export {
-    loginAlumno
+
+    loginAlumno,
+    errorMessage,
+    tokenAlumno
 }

@@ -1,6 +1,6 @@
 
-import { loginAlumno } from './peticiones-http.js';
-import { errorApiAlumno, capturarAliasCode } from './funciones.js';
+import { loginAlumno, errorMessage } from './peticiones-http.js';
+import { errorApiAlumno } from './funciones.js';
 
 const enviarAliasCode = document.querySelector('#boton');
 enviarAliasCode.addEventListener('click', () => {
@@ -13,12 +13,14 @@ enviarAliasCode.addEventListener('click', () => {
         code: code
     }).then(alumno => {
 
+        localStorage.setItem("alumno", JSON.stringify(alumno));
         window.location.href = 'pagina-alumno.html';
 
-        capturarAliasCode(alumno);
+    }).catch(message => {
 
-    }).catch(err => {
+        console.log(message);
 
-        errorApiAlumno(err);
+        errorMessage(message);
+
     });
 });
