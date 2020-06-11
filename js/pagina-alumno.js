@@ -1,23 +1,39 @@
 
 
-import { tokenAlumno } from "./peticiones-http.js";
-
+import { tokenAlumno, actividadesAlumno, resolucionActividades } from "./peticiones-http.js";
+import { nombreTiempoAlumno, enunciadoActividadAlumno } from './funciones.js';
 
 let alumno = JSON.parse(localStorage.getItem("alumno"));
 
 tokenAlumno(alumno.token).then(respuesta => {
 
-
-    console.log(respuesta.expiry);
-
-    console.log(respuesta.nombre);
+    nombreTiempoAlumno(respuesta.nombre, respuesta.expiry);
 
 }).catch(err => {
 
-
+    console.log(err);
 
 });
 
+actividadesAlumno(alumno.token).then(respActividades => {
+
+    enunciadoActividadAlumno(respActividades);
+
+}).catch(err => {
+
+    console.log(err);
+
+});
+
+console.log(alumno.token);
+/* resolucionActividades(alumno.token).then(resolucion => {
 
 
+    //  console.log(resolucion);
 
+
+}).catch(err => {
+
+    console.log(err);
+
+}); */

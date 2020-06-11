@@ -1,6 +1,6 @@
 
 import { loginAlumno, errorMessage } from './peticiones-http.js';
-import { errorApiAlumno } from './funciones.js';
+
 
 const enviarAliasCode = document.querySelector('#boton');
 enviarAliasCode.addEventListener('click', () => {
@@ -24,3 +24,5 @@ enviarAliasCode.addEventListener('click', () => {
 
     });
 });
+
+

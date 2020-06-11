@@ -1,16 +1,24 @@
 
+const nombreTiempoAlumno = (nombre, expiry) => {
 
-const errorApiAlumno = (err) => {
+    let div = document.createElement('div');
+    div.id = 'nombretiempo';
+    div = document.body.appendChild(div);
+    div.innerHTML = `<span> ${nombre} </span>  <span> ${expiry} </span>`;
+}
+const enunciadoActividadAlumno = (actividades) => {
 
-    if (err === 401) {
+    for (const enun of actividades) {
 
-        const span = document.createElement('span');
-        document.querySelector('#info').appendChild(span);
-        span.innerHTML = '<h4>El usuario es incorrecto</h4>';
+        let div = document.createElement('div');
+        div.id = 'eunciado';
+        div = document.querySelector('div').appendChild(div);
+        div.innerHTML = `<a href="pagina-alumno.html"> ${enun.enunciado} </a>`;
     }
 }
 export {
 
-    errorApiAlumno
+    nombreTiempoAlumno,
+    enunciadoActividadAlumno
 
 }
