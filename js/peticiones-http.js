@@ -1,7 +1,6 @@
 
 
 const urlApiLogin = 'http://interacis.com:3333/login',
-    urljson = 'message-err.json',
     urlApiToken = 'http://interacis.com:3333/api/v1/profile',
     urlActividades = 'http://interacis.com:3333/api/v1/activities/current',
     urlResolucion = 'http://interacis.com:3333/api/v1/resolution/:activityId';
@@ -29,17 +28,6 @@ const loginAlumno = async (alias, code) => {
     }
 }
 
-const errorMessage = (message) => {
-
-    fetch(urljson)
-        .then(respuesta => respuesta.json())
-        .then(error => {
-
-            return console.log(error.respuesta);
-
-        });
-
-}
 const tokenAlumno = async (token) => {
 
     try {
@@ -113,7 +101,6 @@ const resolucionActividades = async (token) => {
 export {
 
     loginAlumno,
-    errorMessage,
     tokenAlumno,
     actividadesAlumno,
     resolucionActividades

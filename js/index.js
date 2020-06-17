@@ -1,5 +1,7 @@
 
-import { loginAlumno, errorMessage } from './peticiones-http.js';
+import { loginAlumno } from './peticiones-http.js';
+import diccionario from '../message-err.js';
+import { mensageLoginError } from './funciones.js';
 
 
 const enviarAliasCode = document.querySelector('#boton');
@@ -16,12 +18,9 @@ enviarAliasCode.addEventListener('click', () => {
         localStorage.setItem("alumno", JSON.stringify(alumno));
         window.location.href = 'pagina-alumno.html';
 
-    }).catch(message => {
+    }).catch(err => {
 
-        console.log(message);
-
-        errorMessage(message);
-
+        mensageLoginError(diccionario[err.message]);
     });
 });
 
