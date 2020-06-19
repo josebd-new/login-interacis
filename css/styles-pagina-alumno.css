@@ -1,6 +1,7 @@
 html,
 body {
   background-color: #444444;
+  width: 600px;
 }
 div {
   background-color: white;
@@ -8,6 +9,7 @@ div {
 }
 div#nombretiempo {
   background-color: #1f707a;
+  width: 600px;
   color: azure;
   padding: 10px 10px;
 }
@@ -41,7 +43,7 @@ div#errorapi {
 .modal-content {
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
+  padding: 5px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
 }
@@ -59,4 +61,9 @@ div#errorapi {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+.cabecera-modal {
+  background-color: red;
+  width: 100%;
+  text-align: center;
 }

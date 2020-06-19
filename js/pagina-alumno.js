@@ -5,19 +5,16 @@ import { nombreTiempoAlumno, enunciadoActividadAlumno, mensageApiError } from '.
 import diccionario from '../message-err.js';
 
 
-
 let alumno = JSON.parse(localStorage.getItem("alumno"));
-
 
 tokenAlumno(alumno.token).then(respuesta => {
 
-    let fechaExpiracion = moment(respuesta.expiry).format('HH:mm DD/MM/YYYY');
-    let fechaActual = moment().format('HH:mm DD/MM/YYYY');
-    console.log(fechaExpiracion);
-    console.log(fechaActual);
-    nombreTiempoAlumno(respuesta.nombre, fechaExpiracion);
+    let fechaExpiracion = moment(respuesta.expiry);
+    let fechaActual = moment();
+    const diferencia = fechaExpiracion.diff(fechaActual, 'days');
 
-    //console.log(fechaExpiracion.diff(fechaActual, 'hours'), 'horas de diferencia');
+    nombreTiempoAlumno(respuesta.nombre, fechaExpiracion, diferencia);
+
 
 }).catch(err => {
 
