@@ -96,8 +96,6 @@ const resolucionActividades = async (token) => {
     }
 }
 
-
-
 export {
 
     loginAlumno,

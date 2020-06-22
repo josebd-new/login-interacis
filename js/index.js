@@ -3,7 +3,6 @@ import { loginAlumno } from './peticiones-http.js';
 import diccionario from '../message-err.js';
 import { mensageLoginError } from './funciones.js';
 
-
 const enviarAliasCode = document.querySelector('#boton');
 enviarAliasCode.addEventListener('click', () => {
 
@@ -21,6 +20,7 @@ enviarAliasCode.addEventListener('click', () => {
     }).catch(err => {
 
         mensageLoginError(diccionario[err.message]);
+        setTimeout(() => location.href = 'http://localhost/login-interacis/', 1000);
     });
 });
 

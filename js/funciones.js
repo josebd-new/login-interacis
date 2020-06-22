@@ -15,11 +15,9 @@ const enunciadoActividadAlumno = (actividades) => {
 
         let div = document.createElement('div');
         div.id = 'enunciado';
-        div = document.querySelector('#nombretiempo').appendChild(div);
+        div = document.querySelector('#nombretiempo').insertAdjacentElement('afterend', div);
         div.innerHTML = `<p onclick="ventanaModal('${enun.enunciado}','${enun.url}')">${enun.enunciado}</p>`;
-
     }
-
 }
 
 const mensageLoginError = (mensage) => {

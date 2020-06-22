@@ -42,10 +42,11 @@ div#errorapi {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 5px;
+  margin: 10% auto; /* 15% from the top and centered */
+  /* padding: 5px; */
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+  overflow: hidden;
 }
 
 /* The Close Button */
@@ -62,8 +63,33 @@ div#errorapi {
   text-decoration: none;
   cursor: pointer;
 }
-.cabecera-modal {
-  background-color: red;
+div#cabeceramodal {
+  background-color: #1f707a;
   width: 100%;
+  height: 30px;
+  padding-top: 7px;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+  overflow: hidden;
+}
+footer {
+  width: 100%;
+  height: 30px;
+  padding-top: 7px;
+  background-color: #1f707a;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+div#contenido {
+  height: 300px;
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  transform-origin: 80% 25%;
+}
+img {
+  width: 300px;
+  height: 300px;
 }
