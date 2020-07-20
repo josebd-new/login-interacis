@@ -1,12 +1,12 @@
 
 
-import { tokenAlumno, actividadesAlumno } from "./peticiones-http.js";
+import { tokenAlumno, actividadesAlumno } from './peticiones-http.js';
 import { nombreTiempoAlumno, enunciadoActividadAlumno, mensageApiError } from './funciones.js';
 import diccionario from '../message-err.js';
 
-let alumno = JSON.parse(localStorage.getItem("alumno"));
+let alumno = JSON.parse(localStorage.getItem('alumno'));
 
-tokenAlumno(alumno.toke).then(respuesta => {
+tokenAlumno(alumno.token).then(respuesta => {
 
     let fechaExpiracion = moment(respuesta.expiry);
     let fechaActual = moment();
